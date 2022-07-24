@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 import "./App.css";
 import React from "react";
+import Button from "./components/Button";
 
 function App() {
   const [colour, setColour] = useState();
@@ -29,9 +30,20 @@ function App() {
     fetchColour();
   }, []);
 
+  const hues = ["blue", "green", "yellow", "orange", "red", "pink", "purple"];
+
+  // Maps all hue options to a Button component
+  function huesList() {
+    return hues.map((hue) => {
+      return <Button displayText={hue} key={hue} fetchColour={fetchColour} />;
+    });
+  }
+
   return (
     <div className="App" style={{ backgroundColor: `${colour}` }}>
-      <a onClick={() => fetchColour("purple")}>purple</a>
+      {huesList()}
+      <br></br>
+
       {colour}
     </div>
   );
