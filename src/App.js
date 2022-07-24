@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+
+import "./App.css";
+import React from "react";
 
 function App() {
+  const [colour, setColour] = useState();
+
+  const fetchColour = async () => {
+    const response = await fetch(
+      "https://x-colors.herokuapp.com/api/random/blue",
+      {
+        method: "GET",
+      },
+      { params: { number: 1, type: "light" } }
+    );
+    const data = await response.json();
+    try {
+      setColour(data.hex);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchColour();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <span>{colour}</span>
     </div>
   );
 }
