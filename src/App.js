@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-import "./App.css";
 import React from "react";
 import Button from "./components/Button";
 
@@ -40,11 +39,13 @@ function App() {
   }
 
   return (
-    <div className="App" style={{ backgroundColor: `${colour}` }}>
+    <div style={{ backgroundColor: `${colour}` }}>
+    <div>
       {huesList()}
-      <br></br>
 
-      {colour}
+      
+    </div>
+    <div>{colour}</div>
     </div>
   );
 }

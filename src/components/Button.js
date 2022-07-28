@@ -1,13 +1,15 @@
 import React from "react";
 
+import classes from "./Button.module.css";
+
 const Button = (props) => {
   return (
-    <a
-      className="btn btn-dark px-3 fs-3 button-100"
+    <button
+      className={classes.button}
       onClick={() => props.fetchColour(props.displayText)}
     >
       <span> {props.displayText}</span>
-    </a>
+    </button>
   );
 };
 
