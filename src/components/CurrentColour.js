@@ -1,14 +1,15 @@
 import React from "react";
 
 import Heart from "./Heart";
-import ShortlistedArea from "./ShortlistedArea";
 
 const CurrentColour = (props) => {
   return (
-    <div className="display-2 text-center">
-          This shade is {props.colour} <br />
-          <Heart></Heart>
-          </div>
+    <div className="py-5">
+      <div className="display-2 text-center">
+        This shade is {props.colour} <br />
+        <Heart colour={props.colour} addToShortlistHandler={props.addToShortlistHandler}></Heart>
+      </div>
+    </div>
   );
 };
 

@@ -10,7 +10,7 @@ const MainContent = (props) => {
       style={{ backgroundColor: `${props.colour}` }}
     >
       <div className="container-md container-fluid flex-fill py-5">
-        <CurrentColour colour={props.colour}></CurrentColour>
+        <CurrentColour colour={props.colour} addToShortlistHandler={props.addToShortlistHandler}></CurrentColour>
         <ShortlistedArea></ShortlistedArea>
       </div>
     </div>
