@@ -6,12 +6,12 @@ import ShortlistedArea from "./ShortlistedArea";
 const MainContent = (props) => {
   return (
     <div
-      className="d-flex flex-column vh-100"
+      className="min-vh-100"
       style={{ backgroundColor: `${props.colour}` }}
     >
-      <div className="container-md container-fluid flex-fill py-5">
+      <div className="container-md py-5">
         <CurrentColour colour={props.colour} addToShortlistHandler={props.addToShortlistHandler}></CurrentColour>
-        <ShortlistedArea></ShortlistedArea>
+        <ShortlistedArea shortlist={props.shortlist}></ShortlistedArea>
       </div>
     </div>
   );

@@ -1,9 +1,16 @@
 import React from "react";
+import Shortlist from "./Shortlist";
 
-const ShortlistedArea = () => {
+const ShortlistedArea = (props) => {
   return (
-    <div className="container-md container-fluid flex-fill py-4 bg-light"><div className="display-5 text-center">
-    Saved</div></div>
+    <div className="col-12">
+    <div className="container-md py-4 bg-light">
+      <div className="display-5 text-center">Saved</div>
+      <div className="px-2">
+        <Shortlist shortlist={props.shortlist}></Shortlist>
+      </div>
+    </div>
+    </div>
   );
 };
 

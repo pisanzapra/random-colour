@@ -4,6 +4,8 @@ import React from "react";
 import TopBar from "./components/TopBar";
 import MainContent from "./components/MainContent";
 
+import "./App.css";
+
 function App() {
   const hues = ["blue", "green", "yellow", "orange", "red", "pink", "purple"];
   const [colour, setColour] = useState();
@@ -66,7 +68,7 @@ function App() {
     <React.Fragment>
       <TopBar hues={hues} fetchColour={fetchColour}></TopBar>
       <MainContent
-        colour={colour}
+        colour={colour} shortlist={shortlist} 
         addToShortlistHandler={addToShortlist}
       ></MainContent>
     </React.Fragment>
