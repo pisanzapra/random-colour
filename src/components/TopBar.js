@@ -5,9 +5,14 @@ import Instruction from "./Instruction";
 
 const TopBar = (props) => {
   return (
-    <div className="container-md container-fluid flex-fill py-2">
-      <Instruction />
-      <ButtonGroup hues={props.hues} fetchColour={props.fetchColour}></ButtonGroup>
+    <div style={{ backgroundColor: "#212529" }}>
+      <div className="container-md container-fluid flex-fill py-2">
+        <Instruction />
+        <ButtonGroup
+          hues={props.hues}
+          fetchColour={props.fetchColour}
+        ></ButtonGroup>
+      </div>
     </div>
   );
 };

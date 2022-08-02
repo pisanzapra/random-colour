@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import React from "react";
 import TopBar from "./components/TopBar";
-import CurrentColour from "./components/CurrentColour";
+import MainContent from "./components/MainContent";
 
 function App() {
   const [colour, setColour] = useState();
@@ -35,7 +35,7 @@ function App() {
   return (
     <React.Fragment>
       <TopBar hues={hues} fetchColour={fetchColour}></TopBar>
-      <CurrentColour colour={colour}></CurrentColour>
+      <MainContent colour={colour}></MainContent>
     </React.Fragment>
   );
 }
