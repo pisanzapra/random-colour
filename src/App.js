@@ -40,12 +40,8 @@ function App() {
 
   return (
     <div style={{ backgroundColor: `${colour}` }}>
-    <div>
-      {huesList()}
-
-      
-    </div>
-    <div>{colour}</div>
+      <div>{huesList()}</div>
+      <div>{colour}</div>
     </div>
   );
 }
