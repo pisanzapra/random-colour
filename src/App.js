@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import React from "react";
-import Button from "./components/Button";
+import ButtonGroup from "./components/ButtonGroup";
 
 function App() {
   const [colour, setColour] = useState();
@@ -31,16 +31,12 @@ function App() {
 
   const hues = ["blue", "green", "yellow", "orange", "red", "pink", "purple"];
 
-  // Maps all hue options to a Button component
-  function huesList() {
-    return hues.map((hue) => {
-      return <Button displayText={hue} key={hue} fetchColour={fetchColour} />;
-    });
-  }
-
   return (
     <div style={{ backgroundColor: `${colour}` }}>
-      <div>{huesList()}</div>
+      <div>
+        <ButtonGroup hues={hues} fetchColour={fetchColour}></ButtonGroup>
+      </div>
+      <div></div>
       <div>{colour}</div>
     </div>
   );
