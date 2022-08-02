@@ -1,21 +1,14 @@
 import React from "react";
 
-import classes from "./Button.module.css";
-
 const Button = (props) => {
   return (
-    // <button
-    //   className={classes.button}
-    //   onClick={() => props.fetchColour(props.displayText)}
-    // >
-    //   <span> {props.displayText}</span>
-    // </button>
     <button
-    className="btn btn-primary"
-    onClick={() => props.fetchColour(props.displayText)}
-  >
-    <span> {props.displayText}</span>
-  </button>
+      type="button"
+      className="btn btn-primary m-1"
+      onClick={() => props.fetchColour(props.displayText)}
+    >
+      <span> {props.displayText}</span>
+    </button>
   );
 };
 

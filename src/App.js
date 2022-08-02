@@ -32,12 +32,18 @@ function App() {
   const hues = ["blue", "green", "yellow", "orange", "red", "pink", "purple"];
 
   return (
-    <div style={{ backgroundColor: `${colour}` }}>
-      <div>
-        <ButtonGroup hues={hues} fetchColour={fetchColour}></ButtonGroup>
+    <div
+      className="d-flex flex-column vh-100"
+      style={{ backgroundColor: `${colour}` }}
+    >
+      <div className="container-md container-fluid flex-fill py-2">
+        <div>
+          <span className="m-1">Choose a hue to see random colours</span>
+          <ButtonGroup hues={hues} fetchColour={fetchColour}></ButtonGroup>
+        </div>
+
+        <div>{colour}</div>
       </div>
-      <div></div>
-      <div>{colour}</div>
     </div>
   );
 }
