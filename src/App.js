@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import React from "react";
-import ButtonGroup from "./components/ButtonGroup";
+import TopBar from "./components/TopBar";
 
 function App() {
   const [colour, setColour] = useState();
@@ -32,19 +32,15 @@ function App() {
   const hues = ["blue", "green", "yellow", "orange", "red", "pink", "purple"];
 
   return (
-    <div
-      className="d-flex flex-column vh-100"
-      style={{ backgroundColor: `${colour}` }}
-    >
+<React.Fragment>
       <div className="container-md container-fluid flex-fill py-2">
-        <div>
-          <span className="m-1">Choose a hue to see random colours</span>
-          <ButtonGroup hues={hues} fetchColour={fetchColour}></ButtonGroup>
+  
+          <TopBar hues={hues} fetchColour={fetchColour}></TopBar>
+       
         </div>
-
-        <div>{colour}</div>
-      </div>
-    </div>
+        <div className="d-flex flex-column vh-100" style={{ backgroundColor: `${colour}` }}>{colour}</div>
+     
+        </React.Fragment>
   );
 }
 

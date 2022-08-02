@@ -4,7 +4,7 @@ const Button = (props) => {
   return (
     <button
       type="button"
-      className="btn btn-primary m-1"
+      className="btn btn btn-outline-dark m-1"
       onClick={() => props.fetchColour(props.displayText)}
     >
       <span> {props.displayText}</span>
