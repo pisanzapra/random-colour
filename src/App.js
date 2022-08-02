@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 import React from "react";
 import TopBar from "./components/TopBar";
+import CurrentColour from "./components/CurrentColour";
 
 function App() {
   const [colour, setColour] = useState();
@@ -32,15 +33,10 @@ function App() {
   const hues = ["blue", "green", "yellow", "orange", "red", "pink", "purple"];
 
   return (
-<React.Fragment>
-      <div className="container-md container-fluid flex-fill py-2">
-  
-          <TopBar hues={hues} fetchColour={fetchColour}></TopBar>
-       
-        </div>
-        <div className="d-flex flex-column vh-100" style={{ backgroundColor: `${colour}` }}>{colour}</div>
-     
-        </React.Fragment>
+    <React.Fragment>
+      <TopBar hues={hues} fetchColour={fetchColour}></TopBar>
+      <CurrentColour colour={colour}></CurrentColour>
+    </React.Fragment>
   );
 }
 

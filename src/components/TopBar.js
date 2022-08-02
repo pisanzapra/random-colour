@@ -5,10 +5,10 @@ import Instruction from "./Instruction";
 
 const TopBar = (props) => {
   return (
-    <React.Fragment>
+    <div className="container-md container-fluid flex-fill py-2">
       <Instruction />
       <ButtonGroup hues={props.hues} fetchColour={props.fetchColour}></ButtonGroup>
-    </React.Fragment>
+    </div>
   );
 };
 
