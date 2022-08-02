@@ -7,7 +7,7 @@ const CurrentColour = (props) => {
     <div className="py-5">
       <div className="display-2 text-center">
         This shade is {props.colour} <br />
-        <Heart colour={props.colour} addToShortlistHandler={props.addToShortlistHandler}></Heart>
+        <Heart colour={props.colour} addToShortlistHandler={props.addToShortlistHandler} hue={props.hue}></Heart>
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ import "./App.css";
 
 function App() {
   const hues = ["blue", "green", "yellow", "orange", "red", "pink", "purple"];
+  const [hue, setHue] = useState();
   const [colour, setColour] = useState();
   const [shortlist, setShortlist] = useState([]);
 
@@ -29,6 +30,11 @@ function App() {
     }
   };
 
+  const chooseHue = (hue) => {
+    setHue(hue);
+    fetchColour(hue);
+  };
+
   // Load shortlisted colours from local storage
   const loadExistingShortlist = () => {
     const retrievedData = localStorage.getItem("storedColours");
@@ -41,10 +47,9 @@ function App() {
 
   // Updates the shortlist array when a colour is saved
   // And fetches a new colour
-  const addToShortlist = (colour) => {
-    console.log(colour);
+  const addToShortlist = (colour, hue) => {
     setShortlist([...shortlist, colour]);
-    fetchColour();
+    fetchColour(hue);
   };
 
   // Saves shade to local storage
@@ -55,7 +60,7 @@ function App() {
   useEffect(() => {
     // On load, return a random hex
     // and load the shortlist
-    fetchColour();
+    fetchColour(hue);
     loadExistingShortlist();
   }, []);
 
@@ -66,10 +71,16 @@ function App() {
 
   return (
     <React.Fragment>
-      <TopBar hues={hues} fetchColour={fetchColour}></TopBar>
+      <TopBar
+        hues={hues}
+        fetchColour={fetchColour}
+        chooseHue={chooseHue}
+      ></TopBar>
       <MainContent
-        colour={colour} shortlist={shortlist} 
+        colour={colour}
+        shortlist={shortlist}
         addToShortlistHandler={addToShortlist}
+        hue={hue}
       ></MainContent>
     </React.Fragment>
   );

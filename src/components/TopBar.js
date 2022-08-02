@@ -10,7 +10,7 @@ const TopBar = (props) => {
         <Instruction />
         <ButtonGroup
           hues={props.hues}
-          fetchColour={props.fetchColour}
+          fetchColour={props.fetchColour} chooseHue={props.chooseHue}
         ></ButtonGroup>
       </div>
     </div>

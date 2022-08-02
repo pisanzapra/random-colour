@@ -7,7 +7,7 @@ const ButtonGroup = (props) => {
   function huesList() {
     return props.hues.map((hue) => {
       return (
-        <Button displayText={hue} key={hue} fetchColour={props.fetchColour} />
+        <Button displayText={hue} key={hue} fetchColour={props.fetchColour} chooseHue={props.chooseHue} />
       );
     });
   }

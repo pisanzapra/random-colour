@@ -10,7 +10,7 @@ const MainContent = (props) => {
       style={{ backgroundColor: `${props.colour}` }}
     >
       <div className="container-md py-5">
-        <CurrentColour colour={props.colour} addToShortlistHandler={props.addToShortlistHandler}></CurrentColour>
+        <CurrentColour colour={props.colour} addToShortlistHandler={props.addToShortlistHandler} hue={props.hue}></CurrentColour>
         <ShortlistedArea shortlist={props.shortlist}></ShortlistedArea>
       </div>
     </div>

@@ -3,7 +3,7 @@ import React from "react";
 const SavedColour = (props) => {
   return (
     <React.Fragment>
-      <div className="col-lg-2 col-md-3">
+      <div className="col-lg-2 col-md-3 col-sm-4">
         <div
           className="circle"
           style={{ backgroundColor: `${props.colour}` }}
