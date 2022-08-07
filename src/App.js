@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
 import React from "react";
-import TopBar from "./components/TopBar";
-import MainContent from "./components/MainContent";
+import Page from "./components/Page";
+import InitilisationFailed from "./components/InitilisationFailed";
 
 import "./App.css";
 
@@ -12,20 +12,28 @@ function App() {
   const [colour, setColour] = useState();
   const [shortlist, setShortlist] = useState([]);
 
+  // For error handling (failed API requests)
+  const [initialised, setInitialised] = useState(false);
+  const [apiError, setApiError] = useState(false);
+
   // Return a random hex based on the requested hue
   // Default is blue
   const fetchColour = async (hue = "blue") => {
-    const response = await fetch(
-      `https://x-colors.herokuapp.com/api/random/${hue}`,
-      {
-        method: "GET",
-      },
-      { params: { number: 1 } }
-    );
-    const data = await response.json();
     try {
+      const response = await fetch(
+        `https://x-colors.herokuapp.com/api/random/${hue}`,
+        {
+          method: "GET",
+        },
+        { params: { number: 1 } }
+      );
+      const data = await response.json();
+      // Record if the API request is successful even once
+      setInitialised(true);
       setColour(data.hex);
     } catch (err) {
+      // Record API request error in state
+      setApiError(true);
       console.log(err);
     }
   };
@@ -71,17 +79,22 @@ function App() {
 
   return (
     <React.Fragment>
-      <TopBar
-        hues={hues}
-        fetchColour={fetchColour}
-        chooseHue={chooseHue}
-      ></TopBar>
-      <MainContent
-        colour={colour}
-        shortlist={shortlist}
-        addToShortlistHandler={addToShortlist}
-        hue={hue}
-      ></MainContent>
+      {initialised === true ? (
+        <Page
+          hues={hues}
+          fetchColour={fetchColour}
+          chooseHue={chooseHue}
+          colour={colour}
+          shortlist={shortlist}
+          addToShortlist={addToShortlist}
+          hue={hue}
+          apiError={apiError}
+        ></Page>
+      ) : (
+        // If the API requests fails the first time, the error message will
+        // replace all components on the screen
+        <InitilisationFailed />
+      )}
     </React.Fragment>
   );
 }
