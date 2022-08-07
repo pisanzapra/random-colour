@@ -45,7 +45,7 @@ function App() {
 
   // Load shortlisted colours from local storage
   const loadExistingShortlist = () => {
-    const retrievedData = localStorage.getItem("storedColours");
+    const retrievedData = localStorage.getItem("storedShortlist");
     if (!retrievedData) {
       return;
     }
@@ -56,7 +56,9 @@ function App() {
   // Updates the shortlist array when a colour is saved
   // And fetches a new colour
   const addToShortlist = (colour, hue) => {
-    setShortlist([...shortlist, colour]);
+    const newShortlist = [...shortlist, colour];
+    saveToStorage(newShortlist);
+    setShortlist(newShortlist);
     fetchColour(hue);
   };
 
@@ -66,16 +68,14 @@ function App() {
   };
 
   useEffect(() => {
-    // On load, return a random hex
-    // and load the shortlist
-    fetchColour(hue);
+    // On load, show all saved colours
     loadExistingShortlist();
-  }, []);
+  }, [])
 
-  // This runs when 'shortlist' is changed
   useEffect(() => {
-    saveToStorage(shortlist);
-  }, [shortlist]);
+    // On load, return a random hex
+    fetchColour(hue);
+  }, [hue]);
 
   return (
     <React.Fragment>
