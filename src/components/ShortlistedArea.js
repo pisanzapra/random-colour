@@ -3,9 +3,9 @@ import Shortlist from "./Shortlist";
 
 const ShortlistedArea = (props) => {
   return (
-    <div className="col-12">
+    <div className="col-12 p-4">
       <div className="container-md py-4" style={{ backgroundColor: "white" }}>
-        <div className="display-5 text-center">Saved</div>
+        <h1 className="display-5 text-center">Saved</h1>
         <div className="px-2">
           <Shortlist shortlist={props.shortlist}></Shortlist>
         </div>

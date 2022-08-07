@@ -4,7 +4,7 @@ const Button = (props) => {
   return (
     <button
       type="button"
-      className="btn btn btn-outline-light m-1"
+      className="btn btn-lg btn-outline-light m-2"
       onClick={() => props.chooseHue(props.displayText)}
     >
       <span> {props.displayText}</span>
